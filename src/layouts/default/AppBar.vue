@@ -11,8 +11,8 @@ const logoStyle: CSSProperties = {
   right: '0',
   padding: '1em',
   zIndex: '9999 !important',
-  width: '90px',
-  height: '106px',
+  width: '23%',
+  height: '15%',
 };
 
 </script>

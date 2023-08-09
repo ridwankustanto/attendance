@@ -1,19 +1,24 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-center text-center fill-height">
-      <v-img width="495" src="@/assets/figure-family.png" class="figure-family" />
-      <h1 class="text-h4 font-weight-bold py-4" :style="textKamuAdalahStyle">Kamu adalah...</h1>
-      <!-- <div class="text-body-1 font-weight-medium mb-n1 text-white py-10">Kamu adalah...</div> -->
+      <v-row class="d-flex align-center justify-center">
+        <v-col cols="12">
+          <v-img class="mx-auto" width="495" src="@/assets/figure-family.png" />
+        </v-col>
+        <v-col cols="12">
+          <h1 class="text-h4 font-weight-bold py-4" :style="textKamuAdalahStyle">Kamu adalah...</h1>
+        </v-col>
+      </v-row>
 
       <v-row class="d-flex align-center justify-center">
         <v-col cols="6">
-          <v-btn :style="buttonRoundStyle" class="text-white" color="#A37BBD" height="85" min-width="164"
+          <v-btn :style="buttonRoundStyle" class="text-white" color="#A37BBD" height="85" min-width="164" width="100%"
             rel="noopener noreferrer" variant="flat" :disabled="disabled" :loading="loading_ayah" @click="submit('ayah')">
             Ayah
           </v-btn>
         </v-col>
         <v-col cols="6">
-          <v-btn :style="buttonRoundStyle" class="text-white" color="#FBB216" height="85" min-width="164"
+          <v-btn :style="buttonRoundStyle" class="text-white" color="#FBB216" height="85" min-width="164" width="100%"
             rel="noopener noreferrer" target="_blank" variant="flat" :disabled="disabled" :loading="loading_ibu"
             @click="submit('ibu')">
             Ibu
@@ -23,14 +28,14 @@
 
       <v-row class="d-flex align-center justify-center">
         <v-col cols="6">
-          <v-btn :style="buttonRoundStyle" class="text-white" color="#F0562B" height="85" min-width="164"
+          <v-btn :style="buttonRoundStyle" class="text-white" color="#F0562B" height="85" min-width="164" width="100%"
             rel="noopener noreferrer" target="_blank" variant="flat" :disabled="disabled" :loading="loading_calon_ayah"
             @click="submit('calon_ayah')">
             Calon Ayah
           </v-btn>
         </v-col>
         <v-col cols="6">
-          <v-btn :style="buttonRoundStyle" class="text-white" color="#CCDB29" height="85" min-width="164"
+          <v-btn :style="buttonRoundStyle" class="text-white" color="#CCDB29" height="85" min-width="164" width="100%"
             rel="noopener noreferrer" target="_blank" variant="flat" :disabled="disabled" :loading="loading_calon_ibu"
             @click="submit('calon_ibu')">
             Calon Ibu
@@ -39,8 +44,8 @@
       </v-row>
 
       <v-row class="d-flex align-center justify-center">
-        <v-col cols="auto">
-          <v-btn :style="buttonRoundStyle" class="text-white" color="#518FFE" height="85" min-width="345"
+        <v-col cols="12">
+          <v-btn :style="buttonRoundStyle" class="text-white" color="#518FFE" height="85" min-width="345" width="100%"
             rel="noopener noreferrer" target="_blank" variant="flat" :disabled="disabled" :loading="loading_anak"
             @click="submit('anak')">
             Anak
@@ -62,9 +67,9 @@
               di KITA Fam Fest 🥳
             </v-row>
           </v-card-text>
-          <v-card-actions>
+          <!-- <v-card-actions>
             <v-btn variant="text" class="text-black" block @click="dialog = false">OK</v-btn>
-          </v-card-actions>
+          </v-card-actions> -->
         </v-card>
       </v-dialog>
 
@@ -128,7 +133,6 @@ async function submit(role: string): Promise<void> {
   }
 
   try {
-
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -152,7 +156,7 @@ async function submit(role: string): Promise<void> {
         loading_calon_ibu.value = false
         loading_anak.value = false
 
-      }, 1000);
+      }, 1500);
     } else {
       alert("Ups, mohon dicoba kembali ya 🙏")
       loading_ayah.value = false
