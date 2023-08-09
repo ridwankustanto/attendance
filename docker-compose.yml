@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  kita-attendance:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    image: kita-attendance:dev
+    container_name: kita-attendance
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.kita-attendance.entrypoints=websecure"
+      - "traefik.http.routers.kita-attendance.rule=Host(`cms.kitakeluarga.com`) && PathPrefix(`/attendance`)"
+      - "traefik.http.routers.kita-attendance.service=kita-attendance"
+      - "traefik.http.services.kita-attendance.loadbalancer.server.port=80"
+
+      - "traefik.http.middlewares.kita-attendance.stripprefix.prefixes=/attendance"
+      - "traefik.http.routers.kita-attendance.middlewares=kita-attendance@docker"
+
+networks:
+  proxy:
+    external: true
