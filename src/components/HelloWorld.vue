@@ -137,7 +137,7 @@ async function submit(role: string): Promise<void> {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer m4VFuqVoK4H-FzTq9IhYjh7SZEiuzP0p'
+        'Authorization': 'Bearer BuRYT2tpEIBytXUzolcR8bHoCNJKF8y-'
       },
       body: JSON.stringify(data)
     })

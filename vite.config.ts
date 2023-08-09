@@ -32,7 +32,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        target: "https://cms-staging.kitakeluarga.com",
+        target: "https://cms.kitakeluarga.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
