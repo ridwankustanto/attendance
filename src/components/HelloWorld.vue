@@ -63,13 +63,14 @@
               <div class="text-h6 my-4">
                 Terima kasih!
               </div>
-              Selamat datang
-              di KITA Fam Fest 🥳
+            </v-row>
+            <v-row class="d-flex align-center justify-center">
+              <div class="text-body">
+                Selamat datang
+                di KITA Fam Fest 🥳
+              </div>
             </v-row>
           </v-card-text>
-          <!-- <v-card-actions>
-            <v-btn variant="text" class="text-black" block @click="dialog = false">OK</v-btn>
-          </v-card-actions> -->
         </v-card>
       </v-dialog>
 
@@ -127,7 +128,7 @@ async function submit(role: string): Promise<void> {
   disabled.value = true
 
   // Post data
-  const url = '/api/items/attendance_list'
+  const url = `${import.meta.env.VITE_CMS_API}/items/attendance_list`
   const data = {
     role: role
   }
@@ -135,10 +136,10 @@ async function submit(role: string): Promise<void> {
   try {
     const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer BuRYT2tpEIBytXUzolcR8bHoCNJKF8y-'
-      },
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   'Authorization': 'Bearer BuRYT2tpEIBytXUzolcR8bHoCNJKF8y-'
+      // },
       body: JSON.stringify(data)
     })
 
@@ -156,7 +157,7 @@ async function submit(role: string): Promise<void> {
         loading_calon_ibu.value = false
         loading_anak.value = false
 
-      }, 1500);
+      }, 1000);
     } else {
       alert("Ups, mohon dicoba kembali ya 🙏")
       loading_ayah.value = false

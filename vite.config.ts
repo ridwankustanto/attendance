@@ -8,7 +8,7 @@ import { fileURLToPath, URL } from "node:url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: '/attendance/',
+  base: "/",
   plugins: [
     vue({
       template: { transformAssetUrls },
@@ -30,12 +30,12 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    proxy: {
-      "/api": {
-        target: "https://cms.kitakeluarga.com",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
+    // proxy: {
+    //   "/api": {
+    //     target: "https://cms.kitakeluarga.com",
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/api/, ""),
+    //   },
+    // },
   },
 });
