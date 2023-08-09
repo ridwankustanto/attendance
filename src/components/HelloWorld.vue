@@ -3,7 +3,8 @@
     <v-responsive class="align-center text-center fill-height">
       <v-row class="d-flex align-center justify-center">
         <v-col cols="12">
-          <v-img class="mx-auto" width="495" src="@/assets/figure-family.png" />
+          <!-- width="495" -->
+          <v-img class="mx-auto" aspect-ratio="1:2" width="80%" height="80%" src="@/assets/figure-family.png" />
         </v-col>
         <v-col cols="12">
           <h1 class="text-h4 font-weight-bold py-4" :style="textKamuAdalahStyle">Kamu adalah...</h1>
@@ -157,7 +158,7 @@ async function submit(role: string): Promise<void> {
         loading_calon_ibu.value = false
         loading_anak.value = false
 
-      }, 1000);
+      }, 500);
     } else {
       alert("Ups, mohon dicoba kembali ya 🙏")
       loading_ayah.value = false
