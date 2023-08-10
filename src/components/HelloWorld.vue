@@ -129,19 +129,19 @@ async function submit(role: string): Promise<void> {
   disabled.value = true
 
   // Post data
-  const url = `${import.meta.env.VITE_CMS_API}/items/attendance_list`
-  const data = {
-    role: role
+  const url = `${import.meta.env.VITE_CMS_API}/api/v1/attendance/submit`
+  let _data = {
+    "role": role
   }
 
   try {
     const response = await fetch(url, {
       method: 'POST',
-      // headers: {
-      //   'Content-Type': 'application/json',
-      //   'Authorization': 'Bearer BuRYT2tpEIBytXUzolcR8bHoCNJKF8y-'
-      // },
-      body: JSON.stringify(data)
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${import.meta.env.VITE_CMS_TOKEN}`
+      },
+      body: JSON.stringify(_data)
     })
 
     if (response.ok) {
