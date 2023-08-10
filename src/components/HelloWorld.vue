@@ -158,7 +158,7 @@ async function submit(role: string): Promise<void> {
         loading_calon_ibu.value = false
         loading_anak.value = false
 
-      }, 500);
+      }, 1000);
     } else {
       alert("Ups, mohon dicoba kembali ya 🙏")
       loading_ayah.value = false
